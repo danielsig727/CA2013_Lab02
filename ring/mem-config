@@ -1,1 +1,138 @@
-;; Write your memory config here
+[CacheGeometry geo-l1d]
+Sets = 128
+Assoc = 2
+BlockSize = 256
+Latency = 2
+Policy = LRU
+Ports = 2
+
+[CacheGeometry geo-l1i]
+Sets = 128
+Assoc = 2
+BlockSize = 256
+Latency = 2
+Policy = LRU
+Ports = 2
+
+; Caches
+[Module mod-c0l1d]
+Type = Cache
+Geometry = geo-l1d
+LowNetwork = net0
+LowNetworkNode = n0
+LowModules = mod-mm-0
+
+[Module mod-c0l1i]
+Type = Cache
+Geometry = geo-l1i
+LowNetwork = net0
+LowNetworkNode = n1
+LowModules = mod-mm-0 
+
+[Module mod-c1l1d]
+Type = Cache
+Geometry = geo-l1d
+LowNetwork = net0
+LowNetworkNode = n2
+LowModules = mod-mm-0
+
+[Module mod-c1l1i]
+Type = Cache
+Geometry = geo-l1i
+LowNetwork = net0
+LowNetworkNode = n3
+LowModules = mod-mm-0 
+
+[Module mod-c2l1d]
+Type = Cache
+Geometry = geo-l1d
+LowNetwork = net0
+LowNetworkNode = n4
+LowModules = mod-mm-0
+
+[Module mod-c2l1i]
+Type = Cache
+Geometry = geo-l1i
+LowNetwork = net0
+LowNetworkNode = n5
+LowModules = mod-mm-0 
+
+[Module mod-c3l1d]
+Type = Cache
+Geometry = geo-l1d
+LowNetwork = net0
+LowNetworkNode = n6
+LowModules = mod-mm-0
+
+; 1 I cache
+[Module mod-c3l1i]
+Type = Cache
+Geometry = geo-l1i
+LowNetwork = net0
+LowNetworkNode = n7
+LowModules = mod-mm-0 
+
+; 1 Memory bank
+[Module mod-mm-0]
+Type = MainMemory
+BlockSize = 256
+Latency = 200
+HighNetwork = net0
+HighNetworkNode = n8
+
+; CPU core
+[Entry core00 ]
+Arch = x86
+Core = 0
+Thread = 0
+DataModule = mod-c0l1d
+InstModule = mod-c0l1i
+
+[Entry core01 ]
+Arch = x86
+Core = 0
+Thread = 1
+DataModule = mod-c0l1d
+InstModule = mod-c0l1i
+
+[Entry core10 ]
+Arch = x86
+Core = 1
+Thread = 0
+DataModule = mod-c1l1d
+InstModule = mod-c1l1i
+
+[Entry core11 ]
+Arch = x86
+Core = 1
+Thread = 1
+DataModule = mod-c0l1d
+InstModule = mod-c0l1i
+
+[Entry core20 ]
+Arch = x86
+Core = 2
+Thread = 0
+DataModule = mod-c2l1d
+InstModule = mod-c2l1i
+
+[Entry core21 ]
+Arch = x86
+Core = 2
+Thread = 1
+DataModule = mod-c2l1d
+InstModule = mod-c2l1i
+
+[Entry core30 ]
+Arch = x86
+Core = 3
+Thread = 0
+DataModule = mod-c3l1d
+InstModule = mod-c3l1i
+
+[Entry core31 ]
+Arch = x86
+Core = 3
+Thread = 1
+DataModule = mod-c3l1d
+InstModule = mod-c3l1i

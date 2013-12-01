@@ -1,1 +1,7 @@
-;; Write your cpu config here
+[ General ]
+Cores = 4
+Threads = 2
+
+[ BranchPredictor ]
+Kind = Perfect
+

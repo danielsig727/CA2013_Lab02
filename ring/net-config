@@ -1,1 +1,127 @@
-;; Write your network config here
+[Network.net0]
+DefaultInputBufferSize = 1024 
+DefaultOutputBufferSize = 1024
+DefaultBandwidth = 256 
+
+
+; Switches 
+[Network.net0.Node.sw0]
+Type = Switch
+
+[Network.net0.Node.sw1]
+Type = Switch
+
+[Network.net0.Node.sw2]
+Type = Switch
+
+[Network.net0.Node.sw3]
+Type = Switch
+
+[Network.net0.Node.sw4]
+Type = Switch
+
+
+; Nodes
+[Network.net0.Node.n0]
+Type = EndNode
+
+[Network.net0.Node.n1]
+Type = EndNode
+
+[Network.net0.Node.n2]
+Type = EndNode
+
+[Network.net0.Node.n3]
+Type = EndNode
+
+[Network.net0.Node.n4]
+Type = EndNode
+
+[Network.net0.Node.n5]
+Type = EndNode
+
+[Network.net0.Node.n6]
+Type = EndNode
+
+[Network.net0.Node.n7]
+Type = EndNode
+
+[Network.net0.Node.n8]
+Type = EndNode
+
+
+; Links between switches
+[Network.net0.Link.link-sw0sw1]
+Source = sw0
+Dest = sw1
+Type = Bidirectional
+
+[Network.net0.Link.link-sw1sw2]
+Source = sw1
+Dest = sw2
+Type = Bidirectional
+
+[Network.net0.Link.link-sw0sw3]
+Source = sw2
+Dest = sw3
+Type = Bidirectional
+
+[Network.net0.Link.link-sw1sw4]
+Source = sw3
+Dest = sw4
+Type = Bidirectional
+
+[Network.net0.Link.link-sw0sw0]
+Source = sw4
+Dest = sw0
+Type = Bidirectional
+
+
+; Links from nodes to caches
+[Network.net0.Link.link-sw0n0]
+Source = sw0
+Dest = n0
+Type = Bidirectional
+
+[Network.net0.Link.link-sw0n1]
+Source = sw0
+Dest = n1
+Type = Bidirectional
+
+[Network.net0.Link.link-sw1n2]
+Source = sw1
+Dest = n2
+Type = Bidirectional
+
+[Network.net0.Link.link-sw1n3]
+Source = sw1
+Dest = n3
+Type = Bidirectional
+
+[Network.net0.Link.link-sw2n4]
+Source = sw2
+Dest = n4
+Type = Bidirectional
+
+[Network.net0.Link.link-sw2n5]
+Source = sw2
+Dest = n5
+Type = Bidirectional
+
+[Network.net0.Link.link-sw3n6]
+Source = sw3
+Dest = n6
+Type = Bidirectional
+
+[Network.net0.Link.link-sw3n7]
+Source = sw3
+Dest = n7
+Type = Bidirectional
+
+; Link to main mem
+[Network.net0.Link.link-sw4n8]
+Source = sw4
+Dest = n8
+Type = Bidirectional
+
+
