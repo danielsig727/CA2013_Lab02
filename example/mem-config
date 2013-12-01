@@ -1,0 +1,54 @@
+[CacheGeometry geo-d-l1]
+Sets = 128
+Assoc = 2
+BlockSize = 256
+Latency = 2
+Policy = LRU
+Ports = 2
+
+[CacheGeometry geo-i-l1]
+Sets = 128
+Assoc = 2
+BlockSize = 256
+Latency = 2
+Policy = LRU
+Ports = 2
+
+; 1 Data cache
+[Module mod-l1-0]
+Type = Cache
+Geometry = geo-d-l1
+LowNetwork = net0
+LowNetworkNode = n0
+LowModules = mod-mm-0
+
+; 1 I cache
+[Module mod-il1-0]
+Type = Cache
+Geometry = geo-i-l1
+LowNetwork = net0
+LowNetworkNode = n1
+LowModules = mod-mm-0 
+
+; 1 Memory bank
+[Module mod-mm-0]
+Type = MainMemory
+BlockSize = 256
+Latency = 200
+HighNetwork = net0
+HighNetworkNode = n2
+
+; CPU core
+[Entry core-0 ]
+Arch = x86
+Core = 0
+Thread = 0
+DataModule = mod-l1-0
+InstModule = mod-il1-0
+
+[Entry core-1 ]
+Arch = x86
+Core = 0
+Thread = 1
+DataModule = mod-l1-0
+InstModule = mod-il1-0

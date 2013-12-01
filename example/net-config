@@ -1,0 +1,38 @@
+[Network.net0]
+DefaultInputBufferSize = 1024 
+DefaultOutputBufferSize = 1024
+DefaultBandwidth = 256 
+
+; 4 switches 
+[Network.net0.Node.sw0]
+Type = Switch
+
+; 1 I$ 1 D$
+[Network.net0.Node.n0]
+Type = EndNode
+
+[Network.net0.Node.n1]
+Type = EndNode
+
+; 1 Main Memory access points
+[Network.net0.Node.n2]
+Type = EndNode
+
+; Links from Switches to Main Memory
+[Network.net0.Link.sw0-n2]
+Source = sw0
+Dest = n2
+Type = Bidirectional
+
+; Links from Switches to caches
+[Network.net0.Link.sw0-n0]
+Source = sw0
+Dest = n0
+Type = Bidirectional
+
+[Network.net0.Link.sw0-n1]
+Source = sw0
+Dest = n1
+Type = Bidirectional
+
+
