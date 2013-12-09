@@ -9,6 +9,12 @@ clean:
 	rm HelloWorld
 	rm -rf m2sout
 	rm -rf demo_out
+	rm -rf handin
 directories:
 	mkdir -p demo_out
 	mkdir -p m2sout
+gen-handin:
+	mkdir -p handin/0250187/ring
+	cp ring/cpu-config ring/mem-config ring/net-config handin/0250187/ring
+	cd handin; tar czvf 0250187.tar.gz 0250187
+

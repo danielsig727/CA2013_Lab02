@@ -6,4 +6,5 @@ m2s \
 --x86-report ${REPORT_NAME}/cpu-report \
 --net-report ${REPORT_NAME}/net-report \
 --mem-report ${REPORT_NAME}/mem-report \
+--trace ${REPORT_NAME}/trace.gz \
 ./HelloWorld
