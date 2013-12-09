@@ -1,4 +1,5 @@
 #!/bin/bash
+PATH+=:/opt/m2s42/bin
 m2s \
 --x86-config ${CONFIG_NAME}/cpu-config --x86-sim detailed \
 --net-config ${CONFIG_NAME}/net-config \
