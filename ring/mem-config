@@ -106,8 +106,8 @@ InstModule = mod-c1l1i
 Arch = x86
 Core = 1
 Thread = 1
-DataModule = mod-c0l1d
-InstModule = mod-c0l1i
+DataModule = mod-c1l1d
+InstModule = mod-c1l1i
 
 [Entry core20 ]
 Arch = x86
